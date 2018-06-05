@@ -1,12 +1,10 @@
 # Deploy NFS Server
+
+
 Open ports TCP:111, UDP: 111, TCP:2049, UDP:2049
 
-Install NFS Server
 
-#yum install nfs-utils -y
-#mkdir -p /var/www/{html,mysql}
-#chmod  -R 755 /var/www/{html,mysql}
-#chown nfsnobody:nfsnobody /var/www/{html,mysql}
+yum install nfs-utils -y
 
 
 Now we will share the NFS directory over the network "the private subnet of kubernetes"
@@ -20,6 +18,10 @@ vim /etc/exports
 #Create a backup directory for mysql & wordpress files "for volumes"
 
   mkdir /{mysql,html}
+
+  chmod  -R 755 /{mysql,html}
+
+  chown nfsnobody:nfsnobody /{mysql,html}
 
 
 systemctl enable rpcbind
