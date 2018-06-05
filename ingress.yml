@@ -1,0 +1,13 @@
+---
+# Create Ingress to epose wordpress Service
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wordpres
+  annotations:
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+    #http.port: "80"
+spec:
+  backend:
+    serviceName: wordpress
+    servicePort: 80
