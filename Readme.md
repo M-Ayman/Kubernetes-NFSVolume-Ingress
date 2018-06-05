@@ -13,13 +13,13 @@ Now we will share the NFS directory over the network "the private subnet of kube
 
 #you need to change "172.31.32.0/24" to your private subnet of the cluster or use *
 
-#vim /etc/exports
+vim /etc/exports
 
-/ 172.31.32.0/24(rw,sync,no_root_squash)
+  / 172.31.32.0/24(rw,sync,no_root_squash)
 
 #Create a backup directory for mysql & wordpress files "for volumes"
 
-#mkdir /{mysql,html}
+  mkdir /{mysql,html}
 
 
 systemctl enable rpcbind
